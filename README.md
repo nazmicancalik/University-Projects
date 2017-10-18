@@ -1,2 +1,2 @@
 # University-Projects
-Computer Engineering Course Projects
+Reimplementation of my Computer Engineering Course Projects. 
