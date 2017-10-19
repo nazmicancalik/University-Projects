@@ -1,16 +1,26 @@
 #include "Node.hpp"
 
-class Node
+Node::Node(int aData)
 {
-public:
-    Node(int aData)
-    {
-        this.data = aData;
-    }
+    this.data = aData;
+}
 
-    Node(const Node& aNode)
+Node::Node(const Node &aNode)
+{
+    this.data = aNode.data;
+    if(this.next)
     {
-        this.data = aNode.data;
-        this.next = aNode.next;
+        this->next = new Node(*(aNode.next));
     }
+}
+
+Node& Node::operator=(const Node& aNode)
+{
+    this->data = aNode.data;
+    if(aNode.next)
+    {
+        delete this->next;
+        this->next = new Node(*(aNode.next));
+    }
+    return *this;
 }
